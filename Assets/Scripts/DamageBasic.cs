@@ -22,6 +22,8 @@ public class DamageBasic : MonoBehaviour
         GameObject tempDamage = Instantiate(prefabDamage, transform.position, transform.rotation);
         tempDamage.transform.Find("傷害值文字").GetComponent<TextMeshProUGUI>().text = damage.ToString();
 
+        Destroy(tempDamage, 1.5f);
+
         print($"<color=#ffee66>{gameObject.name} 血量剩下：{hp}</color>");
 
         if (hp <= 0) Dead();
