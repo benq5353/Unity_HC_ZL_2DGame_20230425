@@ -12,6 +12,12 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI textExp;
     [Header("升級面板")]
     public GameObject goLvUp;
+    [Header("技能 1~3")]
+    public GameObject goSkillUI1;
+    public GameObject goSkillUI2;
+    public GameObject goSkillUI3;
+    [Header("技能資料陣列")]
+    public DataSkill[] dataSkills;
 
     private int lv = 1;
     private float exp = 0;
@@ -55,6 +61,7 @@ public class LevelManager : MonoBehaviour
     private void LevelUp()
     {
         goLvUp.SetActive(true);
+        Time.timeScale = 0;
     }
 
     [ContextMenu("產生經驗值需求資料")]

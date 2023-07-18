@@ -2447,6 +2447,15 @@ MonoBehaviour:
   textLv: {fileID: 557627682}
   textExp: {fileID: 1035332137}
   goLvUp: {fileID: 842892970}
+  goSkillUI1: {fileID: 1523300227}
+  goSkillUI2: {fileID: 1754502297}
+  goSkillUI3: {fileID: 422647758}
+  dataSkills:
+  - {fileID: 11400000, guid: 9f43a84ee4f57744493e9cbd3c18dc4a, type: 2}
+  - {fileID: 11400000, guid: 08c58c01ac20c664a8559089fdbe1682, type: 2}
+  - {fileID: 11400000, guid: ca7d2a09c9f522f4d8f4816ef9971253, type: 2}
+  - {fileID: 11400000, guid: 8089b4dcdf85e544faaaf57ad9fd98a4, type: 2}
+  - {fileID: 11400000, guid: e20f9208bd32adb4da9419dd9204d5c6, type: 2}
   expNeeds:
   - 100
   - 200
@@ -2932,7 +2941,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2e039fd45ce40b44a8d7f50505a38011, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -111559,7 +111568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992dd1b468ecd8349818b53020123827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 1
+  interval: 2
   prefabWeapon: {fileID: 2544126535766838002, guid: 71d8bf7edc0c98e4abb61a388571c19c, type: 3}
   power: {x: 100, y: 700}
 --- !u!1001 &1335760122
