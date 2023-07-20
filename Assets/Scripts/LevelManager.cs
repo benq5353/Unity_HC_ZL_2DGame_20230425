@@ -102,5 +102,53 @@ public class LevelManager : MonoBehaviour
         randomSkill[indexSkill].skillLv++;
         goLvUp.SetActive(false);
         Time.timeScale = 1;
+
+        if (randomSkill[indexSkill].skillName == "吸取經驗值範圍") UpdateExpRange();
+        if (randomSkill[indexSkill].skillName == "武器啤酒攻擊") UpdateBeerAttack();
+        if (randomSkill[indexSkill].skillName == "武器生成間隔") UpdateBeerInterval();
+        if (randomSkill[indexSkill].skillName == "玩家血量") UpdatePlayerHp();
+        if (randomSkill[indexSkill].skillName == "移動速度") UpdateMoveSpeed();
+    }
+
+    [Header("爆走企鵝：圓形碰撞")]
+    public CircleCollider2D playerExpRange;
+
+    private void UpdateExpRange()
+    {
+        int lv = dataSkills[0].skillLv - 1;
+        playerExpRange.radius = dataSkills[0].skillValues[lv];
+    }
+
+    [Header("武器啤酒生成點")]
+    public WeaponSystem weaponSystemBeer;
+
+    private void UpdateBeerAttack()
+    {
+        int lv = dataSkills[1].skillLv - 1;
+        weaponSystemBeer.attack = dataSkills[1].skillValues[lv];
+    }
+
+    private void UpdateBeerInterval()
+    {
+        int lv = dataSkills[2].skillLv - 1;
+        weaponSystemBeer.interval = dataSkills[2].skillValues[lv];
+    }
+
+    [Header("玩家資料")]
+    public DataBasic dataBasic;
+
+    private void UpdatePlayerHp()
+    {
+        int lv = dataSkills[3].skillLv - 1;
+        dataBasic.hp = dataSkills[3].skillValues[lv];
+    }
+
+    [Header("爆走企鵝：控制系統")]
+    public ControlSystem controlSystem;
+
+    private void UpdateMoveSpeed()
+    {
+        int lv = dataSkills[4].skillLv - 1;
+        controlSystem.moveSpeed = dataSkills[4].skillValues[lv];
     }
 }
