@@ -1,6 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using System.Collections.Generic;
 
 public class LevelManager : MonoBehaviour
 {
@@ -13,11 +15,19 @@ public class LevelManager : MonoBehaviour
     [Header("升級面板")]
     public GameObject goLvUp;
     [Header("技能 1~3")]
-    public GameObject goSkillUI1;
-    public GameObject goSkillUI2;
-    public GameObject goSkillUI3;
+    public GameObject[] goSkillUI;
+    
+    /// <summary>
+    /// 0 吸取經驗
+    /// 1 啤酒攻擊
+    /// 2 啤酒間隔
+    /// 3 玩家血量
+    /// 4 移動速度
+    /// </summary>
     [Header("技能資料陣列")]
     public DataSkill[] dataSkills;
+
+    public List<DataSkill> randomSkill = new List<DataSkill>();
 
     private int lv = 1;
     private float exp = 0;
@@ -28,7 +38,7 @@ public class LevelManager : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            print($"<color=#ff6699>i 的值：{i}</color>");
+            // print($"<color=#ff6699>i 的值：{i}</color>");
         }
     }
 
@@ -62,6 +72,17 @@ public class LevelManager : MonoBehaviour
     {
         goLvUp.SetActive(true);
         Time.timeScale = 0;
+
+        randomSkill = dataSkills.Where(skill => skill.skillLv < 5).ToList();
+        randomSkill = randomSkill.OrderBy(skill => Random.Range(0, 999)).ToList();
+
+        for (int i = 0; i < 3; i++)
+        {
+            goSkillUI[i].transform.Find("技能名稱").GetComponent<TextMeshProUGUI>().text = randomSkill[i].skillName;
+            goSkillUI[i].transform.Find("技能描述").GetComponent<TextMeshProUGUI>().text = randomSkill[i].skillDescription;
+            goSkillUI[i].transform.Find("技能等級").GetComponent<TextMeshProUGUI>().text = "Lv" + randomSkill[i].skillLv;
+            goSkillUI[i].transform.Find("技能圖片").GetComponent<Image>().sprite = randomSkill[i].skillPicture;
+        }
     }
 
     [ContextMenu("產生經驗值需求資料")]
@@ -73,5 +94,13 @@ public class LevelManager : MonoBehaviour
         {
             expNeeds[i] = (i + 1) * 100;
         }
+    }
+
+    public void ClickSkillButton(int indexSkill)
+    {
+        // print($"<color=#6699ff>點擊技能編號：{indexSkill}</color>");
+        randomSkill[indexSkill].skillLv++;
+        goLvUp.SetActive(false);
+        Time.timeScale = 1;
     }
 }
