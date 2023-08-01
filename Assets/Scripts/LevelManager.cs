@@ -132,6 +132,7 @@ public class LevelManager : MonoBehaviour
     {
         int lv = dataSkills[2].skillLv - 1;
         weaponSystemBeer.interval = dataSkills[2].skillValues[lv];
+        weaponSystemBeer.Restart();
     }
 
     [Header("玩家資料")]

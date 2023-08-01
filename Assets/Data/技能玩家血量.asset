@@ -18,8 +18,8 @@ MonoBehaviour:
     500 \u6EF4\u8840\u4E26\u4E14\u56DE\u5FA9\u5168\u90E8\u8840\u91CF\u3002"
   skillLv: 1
   skillValues:
+  - 200
+  - 400
+  - 600
+  - 800
   - 1000
-  - 1500
-  - 2000
-  - 2500
-  - 3000
