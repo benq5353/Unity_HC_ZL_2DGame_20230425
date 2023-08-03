@@ -7,6 +7,7 @@ public class EnemySystem : MonoBehaviour
 
     private Transform player;
     private float timer;
+    private DamagePlayer damagePlayer;
 
     private void OnDrawGizmos()
     {
@@ -18,12 +19,13 @@ public class EnemySystem : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("爆走企鵝").transform;
+        damagePlayer = player.GetComponent<DamagePlayer>();
     }
 
     private void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
-        print(distance);
+        print($"<color=#af9>距離：{distance}</color>");
 
         if (distance > data.attackRange)
         {
@@ -35,6 +37,12 @@ public class EnemySystem : MonoBehaviour
 
             timer += Time.deltaTime;
             print($"<color=#9f4>計時器：{timer}</color>");
+
+            if (timer >= data.attackInterval)
+            {
+                timer = 0;
+                damagePlayer.Damage(data.attack);
+            }
         }
     }
 }
