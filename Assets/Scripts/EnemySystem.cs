@@ -25,7 +25,7 @@ public class EnemySystem : MonoBehaviour
     private void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
-        print($"<color=#af9>距離：{distance}</color>");
+        // print($"<color=#af9>距離：{distance}</color>");
 
         if (distance > data.attackRange)
         {
@@ -33,10 +33,10 @@ public class EnemySystem : MonoBehaviour
         }
         else
         {
-            print("<color=#f96>進入攻擊範圍</color>");
+            // print("<color=#f96>進入攻擊範圍</color>");
 
             timer += Time.deltaTime;
-            print($"<color=#9f4>計時器：{timer}</color>");
+            // print($"<color=#9f4>計時器：{timer}</color>");
 
             if (timer >= data.attackInterval)
             {
@@ -44,5 +44,8 @@ public class EnemySystem : MonoBehaviour
                 damagePlayer.Damage(data.attack);
             }
         }
+
+        if (transform.position.x > player.position.x) transform.eulerAngles = new Vector3(0, 0, 0);
+        else transform.eulerAngles = new Vector3(0, 180, 0);
     }
 }
