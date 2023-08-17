@@ -28,10 +28,11 @@ public class SpawnEnemyManager : MonoBehaviour
             {
                 spawnSystems[i].prefabEnemy = dataSpawnEnemys[index].prefabEnemy;
                 spawnSystems[i].interval = dataSpawnEnemys[index].intervalSpawn;
+                spawnSystems[i].Restart();
             }
 
             index++;
-            print("生成的波數：" + index);
+            // print("生成的波數：" + index);
         }
     }
 }

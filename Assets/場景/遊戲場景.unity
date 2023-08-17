@@ -298,6 +298,7 @@ MonoBehaviour:
   - {fileID: 588491213}
   dataSpawnEnemys:
   - {fileID: 11400000, guid: be4690528a3359343a5e2cec510108ca, type: 2}
+  - {fileID: 11400000, guid: d53617cfbda3d2646962ac09f12f2a2a, type: 2}
 --- !u!1 &90352845
 GameObject:
   m_ObjectHideFlags: 0
