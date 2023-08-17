@@ -299,6 +299,7 @@ MonoBehaviour:
   dataSpawnEnemys:
   - {fileID: 11400000, guid: be4690528a3359343a5e2cec510108ca, type: 2}
   - {fileID: 11400000, guid: d53617cfbda3d2646962ac09f12f2a2a, type: 2}
+  - {fileID: 11400000, guid: efef57ea563474a4b91ae9f14bceda3a, type: 2}
 --- !u!1 &90352845
 GameObject:
   m_ObjectHideFlags: 0
@@ -3163,9 +3164,9 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 56.5, y: 45}
-      - {x: -50, y: 45}
-      - {x: -50, y: -55}
-      - {x: 56.5, y: -55}
+      - {x: -49.5, y: 45}
+      - {x: -49.5, y: -54.5}
+      - {x: 56.5, y: -54.5}
 --- !u!4 &795016231
 Transform:
   m_ObjectHideFlags: 0

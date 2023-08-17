@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class DamageEnemy : DamageBasic
 {
+    [Header("死亡事件")]
+    public UnityEvent onDead;
+
     private DataEnemy dataEnemy;
 
     private void Start()
@@ -22,6 +26,7 @@ public class DamageEnemy : DamageBasic
     protected override void Dead()
     {
         base.Dead();
+        onDead.Invoke();
         Destroy(gameObject);
 
         // print("隨機值：" + Random.value);
