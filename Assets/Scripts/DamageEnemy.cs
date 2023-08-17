@@ -7,11 +7,16 @@ public class DamageEnemy : DamageBasic
     public UnityEvent onDead;
 
     private DataEnemy dataEnemy;
+    private DamagePlayer damagePlayer;
 
     private void Start()
     {
         dataEnemy = (DataEnemy)data;
         // print(dataEnemy.expProbability);
+        
+        damagePlayer = GameObject.Find("爆走企鵝").GetComponent<DamagePlayer>();
+        
+        onDead.AddListener(() => damagePlayer.Win());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
